@@ -1,25 +1,73 @@
 body {
-	background-color: brown;
+	background: rgba(0, 0, 0, 0.7) url("lab.jpg");
+	background-size: cover;
+	background-blend-mode: darken;
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	--nav-height: 50px;
+	padding-top: var(--nav-height);
 }
-.aspectwrapper {
-	display: inline-block; /* shrink to fit */
-	width: 100%; /* whatever width you like */
-	position: relative; /* so .content can use position: absolute */
+section {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	scroll-snap-align: start;
+	margin-top: 50px;
 }
-.aspectwrapper::after {
-	padding-top: 56.25%; /* percentage of containing block _width_ */
-	display: block;
-	content: "";
+.container {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	padding-right: 17px;
+	box-sizing: content-box;
+	scroll-snap-type: y mandatory;
+	height: 100vh;
 }
-.content {
-	position: absolute;
+
+.chemistry {
+	background-color: rgba(0, 0, 0, 0.25);
+	background-blend-mode: darken;
+	background-size: cover;
+	background-image: url("chemistry.jpg");
+}
+.maths {
+	background-color: rgba(0, 0, 0, 0.25);
+	background-blend-mode: darken;
+	background-size: cover;
+	background-image: url("math.jpg");
+}
+.physics {
+	background-color: rgba(0, 0, 0, 0.25);
+	background-blend-mode: darken;
+	background-size: cover;
+	background-image: url("physics.jpg");
+}
+
+.nav {
+	width: 100%;
+	height: var(--nav-height);
+	position: fixed;
 	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0; /* follow the parent's edges */
-	outline: thin dashed green; /* just so you can see the box */
+	left: 0;
+	background: #009578;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transition: transform 0.2s;
 }
-.grid {
-	display: grid;
-	place-items: center;
+
+.nav--hidden {
+	transform: translateY(calc(-1 * var(--nav-height)));
+	box-shadow: none;
+}
+
+.nav__link {
+	color: #ffffff;
+	text-decoration: none;
+	margin: 0 1em;
+	font-weight: bold;
 }
